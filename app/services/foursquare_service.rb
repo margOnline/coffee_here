@@ -16,8 +16,8 @@ class FoursquareService
 
   def foursquare
     Foursquare2::Client.new(
-      :client_id => 'WAMOYWKSVBLDXMXLEONCZ0NYUWPMOI3GF3X22LF5KOVXYLKX',
-      :client_secret => 'WAIMERRVPCIB5HMPAKSC0K2TN5IPK1NR1OOUZCIT35V4PRIZ'
+      :client_id => ENV['FOURSQUARE_ID'],
+      :client_secret => ENV['FOURSQUARE_SECRET']
     )
   end
 
