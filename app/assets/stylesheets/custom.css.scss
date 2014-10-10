@@ -9,7 +9,7 @@ html {
  body {
   padding-top: 60px;
 }
-
+/* elements */
 section {
   overflow: auto;
 }
@@ -18,15 +18,6 @@ textarea {
   resize: vertical;
 }
 
-.center {
-  text-align: center;
-}
-
-.center h1 {
-  margin-bottom: 10px;
-}
-
-/* typography */
 h1,h2,h3,h4,h5,h6 {
   line-height: 1;
 }
@@ -41,6 +32,19 @@ h1 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+/* general */
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+.error {
+  color: #c00;
 }
 
 /* footer */

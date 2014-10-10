@@ -11,15 +11,19 @@ class MainController < ApplicationController
       @map_markers = get_coords_for(@venues)
       render 'venues'
     else
-      errors.add(:base, 'this is not a valid postcode')
+      flash[:error] = 'This is not a valid postcode'
+      render 'index'
     end
   end
 
   private
 
   def valid_postcode?(postcode)
-    regex = "/^([A-PR-UWYZ]([0-9]{1,2}|([A-HK-Y][0-9]|[A-HK-Y][0-9]([0-9]|[ABEHMNPRV-Y]))|[0-9][A-HJKS-UW])\s?[0-9][ABD-HJLNP-UW-Z]{2}|(GIR\ 0AA)|(SAN\ TA1)|(BFPO\ (C\/O\ )?[0-9]{1,4})|((ASCN|BBND|[BFS]IQQ|PCRN|STHL|TDCU|TKCA)\ 1ZZ))$$/i"
-    postcode =~ regex ? true : false
+    if postcode =~ /^([A-PR-UWYZ]([0-9]{1,2}|([A-HK-Y][0-9]|[A-HK-Y][0-9]([0-9]|[ABEHMNPRV-Y]))|[0-9][A-HJKS-UW])\s?[0-9][ABD-HJLNP-UW-Z]{2}|(GIR\ 0AA)|(SAN\ TA1)|(BFPO\ (C\/O\ )?[0-9]{1,4})|((ASCN|BBND|[BFS]IQQ|PCRN|STHL|TDCU|TKCA)\ 1ZZ))$$/i
+      true
+    else
+      false
+    end
   end
 
   def get_venues(postcode)
