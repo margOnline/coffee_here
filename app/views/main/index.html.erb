@@ -1,0 +1,19 @@
+<% content_for :body_class, 'main' %>
+<% content_for :body_id,    'main-index' %>
+<% content_for :page_title, 'Coffee Here' %>
+
+<div class="center jumbotron">
+  <h2><%= yield :page_title %></h2>
+</div> <!-- .c -->
+
+<div class="c6 med-c12">
+  <%= flash_messages %>
+
+  <h3>Enter a postcode to find local coffee shops</h3>
+
+  <%= form_tag("/search", method: "get") do %>
+    <%= label_tag(:postcode, "Search for:") %>
+    <%= text_field_tag(:postcode) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+</div>

@@ -1,0 +1,18 @@
+common: &common
+  adapter: postgresql
+  encoding: unicode
+  min_messages: warning
+
+development: &development
+  <<: *common
+  database: coffee_here_development
+
+test: &test
+  <<: *common
+  database: coffee_here_test
+#
+# production:
+#   <<: *default
+#   database: coffee_here_production
+#   username: coffee_here
+#   password: <%= ENV['COFFEE_HERE_DATABASE_PASSWORD'] %>
