@@ -5,7 +5,6 @@ class MainController < ApplicationController
   def search
     if valid_postcode?(params[:postcode])
       @fsquare_data = get_venues(params[:postcode])
-      Rails.logger.info("\n\n********* 4Square_id: #{ENV['FOURSQUARE_ID']}, 4Square_secret: #{ENV['FOURSQUARE_SECRET']}*************\n\n")
       @venues = @fsquare_data.venues.map do |venue|
         Venue.new(venue)
       end
