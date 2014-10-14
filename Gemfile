@@ -28,7 +28,9 @@ end
 
 group :test do
   gem 'factory_girl_rails'
+  gem 'flexmock', :require => 'flexmock/test_unit'
   gem 'minitest'
+  gem 'pry'
   gem 'shoulda'
 end
 

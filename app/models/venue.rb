@@ -1,6 +1,6 @@
 class Venue
-  def initialize(hash)
-    @venue = hash
+  def initialize(data)
+    @venue = data
   end
 
   def name
@@ -13,5 +13,13 @@ class Venue
 
   def distance
     @venue.location.distance
+  end
+
+  def latitude
+    @venue.location.lat
+  end
+
+  def longitude
+    @venue.location.lng
   end
 end

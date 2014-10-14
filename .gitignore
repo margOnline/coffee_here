@@ -8,7 +8,9 @@
 /.bundle
 
 # Ignore config keys
-/config/secrets.yml
+config/env.yml
+config/database.yml
+
 README.rdoc
 # Ignore all logfiles and tempfiles.
 /log/*.log

@@ -9,12 +9,18 @@
       <%= render :partial => 'venue_detail', :locals => { :venue => venue } %>
     <% end %>
   </table>
-  <div class="map">
-    <div id="map">
-
-    </div>
+  <!-- <p><a href ="#" class="js-view-map">View results on a map</a></p> -->
+  <div class="map-holder">
+    <div id="map"></div>
   </div>
-  <p><a href ="#" class="js-view-map">View results on a map</a></p>
+  <script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function (){
+      markers = handler.addMarkers(<%=raw @map_markers.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
+  </script>
 <% else %>
   <p>There are no coffee shops in <%= params[:postcode] %></p>
 <% end %>

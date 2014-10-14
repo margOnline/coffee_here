@@ -7,8 +7,12 @@ class MainController < ApplicationController
       @fsquare_data = get_venues(params[:postcode])
       @venues = @fsquare_data.venues.map do |venue|
         Venue.new(venue)
+      end.sort { |a,b| b.checkins <=> a.checkins }
+      @map_markers = Gmaps4rails.build_markers(@venues) do | venue, marker|
+        marker.lat venue.latitude
+        marker.lng venue.longitude
+        marker.infowindow venue.name
       end
-      @map_markers = get_coords_for(@venues)
       render 'venues'
     else
       flash[:error] = 'This is not a valid postcode'
@@ -32,10 +36,7 @@ class MainController < ApplicationController
   end
 
   def get_coords_for(venues)
-    Gmaps4rails.build_markers(venues) do | venue, marker|
-      marker.lat venue.location.lat
-      marker.long venue.location.long
-    end
+
   end
 
 end
