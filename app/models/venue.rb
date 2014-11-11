@@ -4,7 +4,7 @@ class Venue
   end
 
   def name
-    @venue.categories ? @venue.categories.first.name : @venue.name
+    @venue.name
   end
 
   def checkins
