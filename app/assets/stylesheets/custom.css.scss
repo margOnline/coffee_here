@@ -41,6 +41,30 @@ th {
   font-weight: bold;
 }
 
+nav li {
+  display:inline-block;
+  list-style: none;
+  padding: 5px 20px;
+  border: 1px solid gray;
+  border-bottom:none;
+}
+
+nav li a {
+  color: gray;
+}
+
+nav li a:hover {
+  text-decoration: none;
+}
+
+nav li.active {
+  color: purple;
+}
+
+nav li:first-child {
+  margin-right: 5px;
+}
+
 /* general */
 .center {
   text-align: center;

@@ -4,7 +4,7 @@ class Venue
   end
 
   def name
-    @venue.categories ? @venue.categories.first.name : @venue.name
+    @venue.categories.any? ? @venue.categories.first.name : @venue.name
   end
 
   def checkins
@@ -22,4 +22,5 @@ class Venue
   def longitude
     @venue.location.lng
   end
+
 end

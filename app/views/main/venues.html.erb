@@ -1,3 +1,11 @@
+<nav class="views">
+  <ul>
+    <% %w[list map].each do |view| %>
+      <%= venue_list_for(view) %>
+    <% end %>
+  </ul>
+</nav>
+
 <% if @venues && @venues.count > 0 %>
   <table>
     <thead>
@@ -9,18 +17,10 @@
       <%= render :partial => 'venue_detail', :locals => { :venue => venue } %>
     <% end %>
   </table>
-  <!-- <p><a href ="#" class="js-view-map">View results on a map</a></p> -->
+  <p><a href ="#" class="js-view-map">View results on a map</a></p>
   <div class="map-holder">
     <div id="map"></div>
   </div>
-  <script type="text/javascript">
-    handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function (){
-      markers = handler.addMarkers(<%=raw @map_markers.to_json %>);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-    });
-  </script>
 <% else %>
   <p>There are no coffee shops in <%= params[:postcode] %></p>
 <% end %>
