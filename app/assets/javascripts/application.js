@@ -12,7 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+
 //= require turbolinks
 //= require underscore
 //= require gmaps/google
+//= require bootstrap
+//= require angular
+//= require search
+//= require unit
 //= require_tree .

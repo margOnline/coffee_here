@@ -6,14 +6,26 @@
   <h2><%= yield :page_title %></h2>
 </div> <!-- .c -->
 
-<div class="c6 med-c12">
-  <h3 class="error"><%= flash_messages %></div>
-
-  <h3>Enter a postcode to find local coffee shops</h3>
-
-  <%= form_tag("/search", method: "get") do %>
-    <%= label_tag(:postcode, "Search for:") %>
-    <%= text_field_tag(:postcode) %>
-    <%= submit_tag("Search") %>
-  <% end %>
+<div ng-app="search" ng-controller="SearchController as search">
+  <div class="c6 med-c12">
+    <h3 class="error"><%= flash_messages %></div>
+    <div>
+      1st Location: <input type="number" ng-model="search.location1" required >
+    </div>
+    <div>
+      2nd Location: <input type="number" ng-model="search.location2" required >
+    </div>
+    <div>
+      <select ng-model="search.inUnit">
+        <option ng-repeat="u in search.units">{{u}}</option>
+      </select>
+    </div>
+    <div>
+      <b>Total Distance:</b>
+      <span ng-repeat="u in search.units">
+        {{search.distance(u)}}{{u}}
+      </span>
+      <button class="btn" ng-click="search.calculate()">Calculate</button>
+    </div>
+  </div>
 </div>

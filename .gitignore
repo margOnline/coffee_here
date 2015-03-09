@@ -12,6 +12,9 @@ config/env.yml
 config/database.yml
 
 README.rdoc
-# Ignore all logfiles and tempfiles.
+# Ignore all logfiles and tempfiles and DS_Store.
 /log/*.log
 /tmp
+/app/.DS_Store
+.DS_Store
+npm-debug.log
